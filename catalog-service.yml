@@ -12,6 +12,21 @@ spring:
         password: root
         authentication-database: admin
 
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+    sleuth:
+      enabled: true
+  zipkin:
+    enabled: true
+    base-url: http://localhost:9411/
+
+queue:
+  persona:
+    name: CatalogQueue
+
 eureka:
   client:
     register-with-eureka: true
