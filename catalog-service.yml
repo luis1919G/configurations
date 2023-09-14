@@ -12,6 +12,7 @@ eureka:
       prefer-ip-address: true
       lease-renewal-interval-in-seconds: 5
       lease-expiration-duration-in-seconds: 10
+
 spring:
   application:
     name: catalog-service
@@ -40,8 +41,10 @@ rabbitmq:
   username: guest
   port: 5672
   host: localhost
+
 queue:
   persona:
     name: CatalogQueue
+
 server:
   port: ${PORT:${SERVER_PORT:0}}
