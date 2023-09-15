@@ -38,7 +38,7 @@ de:
        mongodb:
           database: catalog
           port: 27019
-          
+
   zipkin:
     base-url: http://localhost:9411/
     enabled: true
@@ -47,6 +47,28 @@ rabbitmq:
   username: guest
   port: 5672
   host: localhost
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      students:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15000
+        permittedNumberOfCallsInHalfOpenState: 3
+        registerHealthIndicator: true
+        allowHealthIndicatorToFail: false
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+  retry:
+    instances:
+      movieCB:
+        waitDuration: 1000
+        maxAttempts: 3
+        retryExceptions:
+          - feign.FeignException$InternalServerError
+
 
 server:
   port: ${PORT:${SERVER_PORT:0}}
