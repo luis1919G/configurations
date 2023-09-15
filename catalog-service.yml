@@ -28,6 +28,7 @@ spring:
         movie-service:
           url: http//movie-service
           name: movie-serie
+flapdoodle:
   mongodb:
     embedded:
       version: 4.0.2
