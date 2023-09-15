@@ -28,15 +28,17 @@ spring:
         movie-service:
           url: http//movie-service
           name: movie-serie
+
 de:
   flapdoodle:
     mongodb:
       embedded:
-        version: 4.0.2
+        version: 4.6.1
       data:
        mongodb:
           database: catalog
           port: 27019
+          
   zipkin:
     base-url: http://localhost:9411/
     enabled: true
